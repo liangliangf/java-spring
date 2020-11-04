@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--configuration 核心配置文件-->
+<configuration>
+
+    <typeAliases>
+        <package name="com.liang.pojo"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/><!-- 单独使用时配置成MANAGED没有事务 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://192.168.0.191:3306/abp_learndb?useSSL=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+                <property name="username" value="www"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+    <!--使用接口信息进行配置(xml文件要和接口文件在同一个包下，且名字相同)-->
+    <mapper class="com.liang.mapper.UserMapper"></mapper>
+    <!--使用相对路径进行配置-->
+        <mapper resource="com/liang/mapper/UserMapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>

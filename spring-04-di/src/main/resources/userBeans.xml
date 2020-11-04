@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--p 命名空间注入属性,可以直接注入属性的值：property -->
+    <bean id="user" class="com.liang.User" p:name="张翠山" p:age="26" p:addres-ref="addres">
+    </bean>
+
+    <!--c 命名空间注入, 通过构造器注入：construct -->
+    <bean id="user2" class="com.liang.User" c:name="张无忌" c:addres-ref="addres" c:age="23"></bean>
+
+    <bean id="addres" class="com.liang.pojo.Addres" p:address="西安" scope="prototype"></bean>
+
+<!--Tis: p 命名空间注入 和 c 命名空间注入 需要导入xml约束
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+       bean的作用域(单例)：（<bean id="xx" class="xx" scope="singleton"></bean>） spring默认单例
+       bean的作用域（原型）：（<bean id="xx" class="xx" scope="prototype"></bean>） 原型模式，每次从容器中get的时候都会产生一个新对象
+-->
+
+</beans>

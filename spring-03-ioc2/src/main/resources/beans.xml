@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="user" class="com.liang.poji.User">-->
+<!--        <property name="name" value="马良"></property>-->
+<!--    </bean>-->
+
+    <!--有参构造-->
+<!--    &lt;!&ndash; 下标赋值 &ndash;&gt;-->
+<!--    <bean id="user" class="com.liang.poji.User">-->
+<!--        <constructor-arg index="0" value="马良"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;通过类型，不建议使用&ndash;&gt;-->
+<!--    <bean id="user" class="com.liang.poji.User">-->
+<!--        <constructor-arg type="java.lang.String" value="马良"></constructor-arg>-->
+<!--    </bean>-->
+
+    <!--通过参数名-->
+    <bean id="user" class="com.liang.poji.User">
+        <constructor-arg name="name" value="马良"></constructor-arg>
+    </bean>
+
+
+    <!--
+        id:bean唯一标识符，也就相当于对象名
+        class:bean对象所对应的全限定名：包名+类名
+        name:也是别名,可以同时取多个别名
+        scope:默认单例模式
+    -->
+    <bean id="userT" class="com.liang.poji.UserT" name="user2,user3" scope="singleton">
+        <property name="name" value="Spring2"></property>
+    </bean>
+
+    <!--别名,添加了别名，我们也可以使用别名获取到这个对象-->
+    <alias name="user" alias="newUser"></alias>
+
+
+
+</beans>

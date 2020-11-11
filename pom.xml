@@ -22,6 +22,7 @@
         <module>spring-10-mybatis2</module>
         <module>spring-10-mybatis3</module>
         <module>spring-11-transaction</module>
+        <module>ssmbuild</module>
     </modules>
 
     <dependencies>

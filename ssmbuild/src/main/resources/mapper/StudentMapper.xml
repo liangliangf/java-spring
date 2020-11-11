@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liang.dao.StudentMapper">
+    <insert id="addStudent" parameterType="T_student">
+        insert into T_student(name,sex,schoolid,create_time,update_timie)
+        values(#{name},#{sex},#{schoolid},#{create_time},#{update_time})
+    </insert>
+    
+    <delete id="delById" parameterType="int">
+        delete from T_student where id=#{studentId}
+    </delete>
+
+    <update id="updateStudent" parameterType="T_student">
+        update T_student set name=#{name},sex=#{sex},schoolid=#{schoolid},update_time=now()
+        where id=#{id}
+    </update>
+    
+    <select id="querryById" resultType="T_student">
+        select * from T_student where id=#{studentId}
+    </select>
+
+    <select id="queryAll" resultType="T_student">
+        select * from T_student
+    </select>
+</mapper>
+
